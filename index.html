@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的影像作品集 | Video Portfolio</title>
+    <style>
+        /* 1. 基礎設定 */
+        :root {
+            --primary-color: #ff4500;
+            --bg-dark: #0a0a0a;
+            --card-bg: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-dark);
+            color: white;
+            margin: 0;
+            scroll-behavior: smooth;
+        }
+
+        /* 2. 封面第一頁 (Hero) */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/hero-bg.jpg');
+            background-size: cover;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 5px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #aaa;
+            letter-spacing: 2px;
+        }
+
+        /* 3. 關於我 (About) */
+        .section {
+            padding: 100px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-text {
+            line-height: 2;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .highlight {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* 4. 分類導覽 */
+        .filter-nav {
+            margin: 40px 0;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid #444;
+            color: #888;
+            padding: 8px 20px;
+            margin: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 20px;
+        }
+
+        .filter-btn:hover,
+        .active {
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        /* 5. 作品集區塊 (Grid) */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .video-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-info {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .video-info h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .video-tag {
+            font-size: 0.8rem;
+            background: #333;
+            padding: 3px 10px;
+            border-radius: 5px;
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="hero">
+        <h1>這是我的作品集</h1>
+        <p>VIDEO CREATOR & CINEMATOGRAPHER</p>
+        <div style="margin-top: 50px;">↓ 往下滑動了解更多</div>
+    </section>
+
+    <section class="section">
+        <h2>關於我 / ABOUT ME</h2>
+        <div class="about-text">
+            我是傳播系的學生，目前正專注於影像創作。 <br>
+            我習慣使用 <span class="highlight">Sony A7M4</span> 進行拍攝，並透過 <span class="highlight">DaVinci Resolve</span>
+            進行色彩處理。<br>
+            影像對我而言是說故事的媒介，目前我正積極累積作品，為一年後的<span class="highlight">畢業製作</span>做最充足的準備。
+        </div>
+    </section>
+
+    <section class="section" id="portfolio">
+        <h2>作品分類 / PORTFOLIO</h2>
+        <div class="filter-nav">
+            <button class="filter-btn active">全部作品</button>
+            <button class="filter-btn">MV</button>
+            <button class="filter-btn">活動紀錄</button>
+            <button class="filter-btn">劇情片</button>
+        </div>
+
+        <div class="video-grid">
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/你的影片ID" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <span class="video-tag">MV</span>
+                    <h3>作品名稱：音樂錄影帶創作</h3>
+                    <p style="font-size: 0.9rem; color: #888;">使用器材：Sony A7M4 | 擔任職位：攝影、剪輯</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/你的影片ID" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <span class="video-tag">活動紀錄</span>
+                    <h3>作品名稱：校園活動紀錄</h3>
+                    <p style="font-size: 0.9rem; color: #888;">使用器材：Sony A7M4 | 擔任職位：攝影</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/你的影片ID" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <span class="video-tag">劇情片</span>
+                    <h3>作品名稱：微電影短片</h3>
+                    <p style="font-size: 0.9rem; color: #888;">使用器材：Sony A7M4 | 擔任職位：導演、剪輯</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 40px; color: #444; font-size: 0.8rem;">
+        &copy; 2026 Your Name. All Rights Reserved.
+    </footer>
+
+</body>
+
+</html>
