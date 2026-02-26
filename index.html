@@ -3,147 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MONSGGRUND | 影像作品集</title>
+    <title>MONSGGRUND | Video Portfolio</title>
     <style>
         :root {
-            --primary: #2c2420; /* 深棕黑 */
-            --accent: #a67c52; /* 古銅棕 */
-            --bg-light: #fdfdfd;
-            --bg-warm-gray: #f4f1ee; /* 暖灰色 */
-            --text-main: #333333;
+            --primary: #111111;    /* 極致黑 */
+            --secondary: #333333;  /* 深灰 */
+            --neutral: #888888;    /* 中灰 */
+            --light-gray: #f5f5f5; /* 淺冷灰 */
+            --bg-white: #ffffff;
         }
 
-        * { box-sizing: border-box; transition: all 0.4s ease; }
-        body { font-family: "PingFang TC", serif; margin: 0; background: var(--bg-light); color: var(--text-main); scroll-behavior: smooth; }
+        * { box-sizing: border-box; transition: all 0.3s ease; }
+        body { font-family: "Helvetica Neue", "PingFang TC", sans-serif; margin: 0; background: var(--bg-white); color: var(--primary); scroll-behavior: smooth; }
 
         /* 導覽列 */
         nav {
-            position: fixed; top: 0; width: 100%; height: 70px;
-            background: rgba(253, 253, 253, 0.95); backdrop-filter: blur(5px);
+            position: fixed; top: 0; width: 100%; height: 65px;
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
             display: flex; justify-content: center; align-items: center;
-            z-index: 1000; border-bottom: 1px solid #e5e5e5;
+            z-index: 1000; border-bottom: 1px solid #eee;
         }
-        nav a { text-decoration: none; color: #888; margin: 0 20px; font-size: 0.85rem; letter-spacing: 2px; }
-        nav a:hover { color: var(--accent); }
+        nav a { text-decoration: none; color: var(--neutral); margin: 0 20px; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; }
+        nav a:hover { color: var(--primary); border-bottom: 1px solid var(--primary); }
 
-        /* 封面區 - 暖色調 */
+        /* 封面區 - 深沉工業黑 */
         .hero {
-            height: 100vh; background: var(--bg-warm-gray);
+            height: 100vh; background: #000;
             display: flex; align-items: center; justify-content: center;
-            position: relative; overflow: hidden;
+            position: relative; color: #fff;
         }
         .hero-content { z-index: 2; text-align: center; }
-        .hero-content h1 { font-size: 5rem; margin: 0; letter-spacing: 10px; color: var(--primary); }
-        .hero-content p { font-size: 1rem; color: var(--accent); letter-spacing: 5px; margin-top: 15px; }
-
-        /* 裝飾線條 */
-        .line-dec { width: 1px; height: 100px; background: var(--accent); margin: 30px auto; }
+        .hero-content h1 { font-size: 4rem; margin: 0; letter-spacing: 15px; font-weight: 200; }
+        .hero-content p { font-size: 0.85rem; color: var(--neutral); letter-spacing: 5px; margin-top: 20px; text-transform: uppercase; }
+        
+        /* 裝飾白線 */
+        .line-dec { width: 30px; height: 1px; background: #fff; margin: 40px auto; opacity: 0.5; }
 
         /* 通用區塊樣式 */
-        section { padding: 120px 20px; max-width: 1100px; margin: 0 auto; }
+        section { padding: 100px 20px; max-width: 1000px; margin: 0 auto; }
 
-        /* 關於我 - 穿插深色塊 */
-        .about-section { background: #fff; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .about-image { background: var(--bg-warm-gray); height: 400px; border-radius: 4px; } /* 這裡之後放你的 Sony A7M4 工作照 */
+        /* 關於我 - 冷灰色系 */
+        .about-section { background: var(--light-gray); max-width: 100%; padding: 120px 0; }
+        .about-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; padding: 0 20px; }
         
-        /* 經歷區 - 棕灰色調 */
-        .experience-section { background: var(--primary); color: #ddd; max-width: 100%; padding: 100px 0; }
-        .exp-inner { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-        .exp-card { border-left: 1px solid var(--accent); padding: 20px 40px; margin-bottom: 30px; }
-        .exp-card h4 { color: #fff; font-size: 1.3rem; margin: 0 0 10px 0; }
-        .exp-card span { color: var(--accent); font-size: 0.9rem; font-weight: bold; }
+        /* 經歷區 - 極簡白底 */
+        .experience-section { background: #fff; padding: 120px 20px; }
+        .exp-item { border-bottom: 1px solid #f0f0f0; padding: 25px 0; display: flex; justify-content: space-between; align-items: baseline; }
+        .exp-item h4 { margin: 0; font-size: 1.1rem; font-weight: 600; color: var(--primary); }
+        .exp-year { font-family: monospace; color: var(--neutral); font-size: 0.9rem; }
 
-        /* 作品集 - 簡約卡片 */
-        .portfolio-section { background: #fff; }
+        /* 作品集 - 黑色格柵感 */
+        .portfolio-section { background: var(--bg-white); }
         .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
-        .video-card { background: #fff; border: 1px solid #eee; }
+        .video-card { border: 1px solid #eee; padding: 10px; }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: #000; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-        .video-info { padding: 25px; }
-        .video-info h3 { margin: 0 0 10px 0; font-weight: 500; }
-        .video-info p { font-size: 0.8rem; color: #999; margin: 0; }
+        .video-info { padding: 20px 0 10px 0; }
+        .video-info h3 { margin: 0; font-size: 1rem; font-weight: 500; letter-spacing: 1px; }
+        .video-info span { font-size: 0.7rem; color: var(--neutral); text-transform: uppercase; display: block; margin-top: 5px; }
 
-        /* 專長標籤 */
-        .skill-tag { display: inline-block; padding: 5px 12px; border: 1px solid var(--accent); color: var(--accent); font-size: 0.75rem; margin: 5px; }
+        /* 專長標籤 - 深灰白字 */
+        .skill-tag { display: inline-block; padding: 4px 10px; background: var(--secondary); color: #fff; font-size: 0.65rem; margin: 4px; border-radius: 0; }
 
-        footer { background: #1a1a1a; color: #666; padding: 60px 20px; text-align: center; font-size: 0.8rem; }
+        footer { background: #000; color: #555; padding: 60px 20px; text-align: center; font-size: 0.7rem; letter-spacing: 2px; }
 
         @media (max-width: 768px) {
-            .about-section, .portfolio-grid { grid-template-columns: 1fr; }
-            .hero-content h1 { font-size: 3rem; }
+            .about-inner, .portfolio-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2.5rem; letter-spacing: 8px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#hero">HOME</a>
-        <a href="#about">ABOUT</a>
-        <a href="#experience">EXPERIENCE</a>
-        <a href="#portfolio">WORKS</a>
+        <a href="#hero">Intro</a>
+        <a href="#about">About</a>
+        <a href="#experience">Exp</a>
+        <a href="#portfolio">Works</a>
     </nav>
 
-    <section class="hero" id="hero">
+    <div class="hero" id="hero">
         <div class="hero-content">
             <h1>MONSGGRUND</h1>
-            <p>CINEMATOGRAPHER & COLORIST</p>
+            <p>CINEMATOGRAPHER & POST-PRODUCTION</p>
             <div class="line-dec"></div>
-        </div>
-    </section>
-
-    <section id="about" class="about-section">
-        <div class="about-image" style="background-image: url('assets/hero-bg.jpg'); background-size: cover; background-position: center;">
-            </div>
-        <div class="about-info">
-            <h2 style="font-size: 2rem; color: var(--primary);">關於我 / PROFILE</h2>
-            <p style="line-height: 1.8; color: #666;">
-                我是傳播系的學生，致力於探索影像的深度。<br>
-                擅長使用 <b>Sony A7M4</b> 捕捉具備敘事溫度的畫面，
-                並在 <b>DaVinci Resolve</b> 中進行色彩重建，賦予影片獨特的底片質感。<br><br>
-                目前正擔任多個劇組攝影職位，並為一年後的<b>畢業製作</b>累積實戰經驗。
-            </p>
-            <div style="margin-top: 20px;">
-                <span class="skill-tag">Sony A7M4</span>
-                <span class="skill-tag">DaVinci Resolve</span>
-                <span class="skill-tag">劇組攝影執行</span>
-            </div>
-        </div>
-    </section>
-
-    <div class="experience-section" id="experience">
-        <div class="exp-inner">
-            <h2 style="color: #fff; text-align: center; margin-bottom: 60px;">經歷 / EXPERIENCE</h2>
-            
-            <div class="exp-card">
-                <span>2026</span>
-                <h4>畢業製作 (籌備中)</h4>
-                <p>擔任攝影師，主導影像風格設定與技術執行。</p>
-            </div>
-
-            <div class="exp-card">
-                <span>2025</span>
-                <h4>劇組 / 商業短片錄影</h4>
-                <p>負責現場燈光配置與動態攝影。</p>
-            </div>
-
-            <div class="exp-card">
-                <span>2024</span>
-                <h4>校園活動紀錄</h4>
-                <p>獨立完成拍攝與剪輯流程，精進 Sony 相機操作流程。</p>
-            </div>
         </div>
     </div>
 
+    <section id="about" class="about-section">
+        <div class="about-inner">
+            <div style="border-left: 2px solid var(--primary); padding-left: 30px;">
+                <h2 style="margin-top: 0; font-weight: 700; font-size: 1.5rem;">ABOUT</h2>
+                <p style="line-height: 1.8; color: var(--secondary); font-size: 0.9rem;">
+                    我是傳播系學生，專注於影視器材的運用與敘事美學。<br><br>
+                    核心創作工具為 <b>Sony A7M4</b>，並深入鑽研 <b>DaVinci Resolve</b> 色彩工作流。
+                    致力於透過精準的畫面與色彩傳遞情感，現正為一年後的<b>畢業製作</b>累積專業劇組實務。
+                </p>
+                <div style="margin-top: 30px;">
+                    <span class="skill-tag">SONY A7M4</span>
+                    <span class="skill-tag">DAVINCI RESOLVE</span>
+                    <span class="skill-tag">PREMIERE PRO</span>
+                </div>
+            </div>
+            <div style="color: var(--neutral); font-size: 0.8rem; letter-spacing: 1px;">
+                // VISUAL STORYTELLING <br>
+                // COLOR GRADING <br>
+                // CINEMATOGRAPHY
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience-section">
+        <h2 style="text-align: center; font-weight: 700; margin-bottom: 60px;">EXPERIENCE</h2>
+        <div class="exp-item">
+            <div>
+                <h4>畢業製作 / 攝影師</h4>
+                <p style="color: var(--neutral); font-size: 0.85rem; margin: 5px 0;">負責全片視覺風格定調與技術執行計畫。</p>
+            </div>
+            <span class="exp-year">2026</span>
+        </div>
+        <div class="exp-item">
+            <div>
+                <h4>商業與 MV 劇組 / 攝影助理</h4>
+                <p style="color: var(--neutral); font-size: 0.85rem; margin: 5px 0;">參與現場拍攝流程，協助燈光與畫面構圖。</p>
+            </div>
+            <span class="exp-year">2025</span>
+        </div>
+        <div class="exp-item">
+            <div>
+                <h4>校園活動與動態紀錄</h4>
+                <p style="color: var(--neutral); font-size: 0.85rem; margin: 5px 0;">獨立完成多項活動拍攝與 DaVinci 色彩校正。</p>
+            </div>
+            <span class="exp-year">2024</span>
+        </div>
+    </section>
+
     <section id="portfolio" class="portfolio-section">
-        <h2 style="text-align: center; margin-bottom: 60px;">精選作品 / PORTFOLIO</h2>
+        <h2 style="text-align: center; font-weight: 700; margin-bottom: 60px;">WORKS</h2>
         <div class="portfolio-grid">
             <div class="video-card">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/你的影片ID" allowfullscreen></iframe>
                 </div>
                 <div class="video-info">
-                    <h3>劇情片 / 作品名稱</h3>
-                    <p>CINEMATOGRAPHER & COLORIST</p>
+                    <h3>劇情短片 / 標題名稱</h3>
+                    <span>Cinematography & Color</span>
                 </div>
             </div>
             </div>
@@ -155,6 +159,7 @@
 
 </body>
 </html>
+
 
 
 
