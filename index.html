@@ -71,6 +71,20 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 縮小最小寬度至 300px */
             gap: 25px; /* 縮小間距使排版更緊湊 */
         }
+        /* --- 設定作品集背景與封面同色 --- */
+        #portfolio {
+        background-color: var(--bg-hero); /* 套用封面顏色 */
+        max-width: 100%; /* 讓背景向左右延伸到滿版 */
+        padding: 100px 20px; /* 增加上下留白的空間，讓版面更好看 */
+        }
+
+        /* 確保作品集裡面的標題和影片框框依然維持在正中間 */
+#portfolio h2, 
+#portfolio .portfolio-grid {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
         .video-card { background: #fff; border: 1px solid #eee; transition: transform 0.3s ease; }
         .video-card:hover { transform: translateY(-5px); } /* 增加輕微懸浮感 */
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: #000; }
@@ -286,6 +300,7 @@
 
 </body>
 </html>
+
 
 
 
