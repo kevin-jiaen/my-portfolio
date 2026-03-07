@@ -104,8 +104,11 @@
 
         footer { background: #221f1d; padding: 60px 20px; text-align: center; color: #777; font-size: 0.7rem; }
 
-        /* 手機版排版適應 */
+      /* 手機版排版適應 */
         @media (max-width: 768px) {
+            /* 加入這行：縮小導覽列的間距與字距，確保能塞進手機螢幕 */
+            nav a { margin: 0 8px; font-size: 0.75rem; letter-spacing: 1px; }
+
             .about-grid { grid-template-columns: 1fr; }
             .portfolio-grid { grid-template-columns: 1fr; }
             .hero-container { flex-direction: column; text-align: center; gap: 30px; }
@@ -114,6 +117,7 @@
             .hero-content { text-align: center; }
             .hero-content h1 { font-size: 2.8rem; letter-spacing: 6px; }
         }
+        
     </style>
 </head>
 <body>
@@ -306,6 +310,7 @@
 
 </body>
 </html>
+
 
 
 
