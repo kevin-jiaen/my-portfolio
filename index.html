@@ -58,12 +58,11 @@
         .hero-content h1 { font-size: 3.5rem; margin: 0; letter-spacing: 10px; color: var(--bg-dark-brown); font-weight: 400; }
         .hero-content p { font-size: 0.9rem; color: var(--bg-smoke); letter-spacing: 5px; margin-top: 15px; font-weight: 600; }
 
-        /* 修改了整體的 section 留白，讓標題往上靠 */
         section { padding: 60px 20px 100px 20px; max-width: 1200px; margin: 0 auto; }
 
         /* 關於我 */
         #about {
-            padding-top: 50px; /* 大幅縮小上方留白 */
+            padding-top: 50px; 
         }
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
         .about-info p { line-height: 2; color: #444; font-size: 1rem; }
@@ -92,7 +91,7 @@
         
         @keyframes fade { from {opacity: 0.5} to {opacity: 1} }
 
-        /* 經歷區 (縮小上方留白為 50px) */
+        /* 經歷區 */
         .experience-section { background: var(--bg-smoke); max-width: 100%; padding: 50px 0 80px 0; color: #eee; }
         .exp-inner { max-width: 900px; margin: 0 auto; padding: 0 20px; }
         .exp-item { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 25px 0; display: flex; justify-content: space-between; }
@@ -104,11 +103,11 @@
             gap: 25px; 
         }
         
-        /* 縮小上方留白為 50px */
+        /* 將 padding-top 縮小為 40px */
         #portfolio {
             background-color: var(--bg-hero); 
             max-width: 100%; 
-            padding: 50px 20px 100px 20px; 
+            padding: 40px 20px 100px 20px; 
         }
 
         #portfolio h2, 
@@ -176,7 +175,7 @@
     <section id="about">
         <div class="about-grid">
             <div class="about-info">
-                <h2 style="color: var(--bg-dark-brown);">關於我 </h2>
+                <h2 style="color: var(--bg-dark-brown); margin-top: 0;">關於我 </h2>
                 <p>
                     我是就讀傳播藝術系的學生，心思細膩且具備強烈的共感能力。<br>
                     在規律的課業之外，我熱衷於透過攝影、旅遊與音樂汲取靈感。<br><br>
@@ -251,7 +250,7 @@
 
     <div class="experience-section" id="experience">
         <div class="exp-inner">
-            <h2 style="text-align: center; margin-bottom: 50px;">經歷 / EXPERIENCE</h2>
+            <h2 style="text-align: center; margin-top: 0; margin-bottom: 50px;">經歷 / EXPERIENCE</h2>
             
             <div class="exp-item">
                 <div>
@@ -298,7 +297,7 @@
     </div>
 
     <section id="portfolio">
-        <h2 style="text-align: center; color: var(--bg-dark-brown); margin-bottom: 60px;">動態影片 / VIDEO WORKS</h2>
+        <h2 style="text-align: center; color: var(--bg-dark-brown); margin-top: 0; margin-bottom: 40px;">動態影片 / VIDEO WORKS</h2>
         <div class="portfolio-grid">
             <div class="video-card">
                 <div class="video-wrapper">
