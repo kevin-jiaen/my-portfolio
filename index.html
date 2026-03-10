@@ -26,6 +26,11 @@
         nav a { text-decoration: none; color: #666; margin: 0 20px; font-size: 0.8rem; letter-spacing: 2px; font-weight: 600; }
         nav a:hover { color: var(--bg-dark-brown); }
 
+        /* 讓所有區塊在透過選單跳轉時，都會自動避開上方 70px 的導覽列 */
+        section, .experience-section {
+            scroll-margin-top: 70px; 
+        }
+
         /* --- 封面區 --- */
         .hero {
             height: 100vh; background: var(--bg-hero);
@@ -65,15 +70,15 @@
         /* --- 輪播圖照片集 --- */
         .carousel-wrapper { margin-top: 20px; }
         .carousel-container {
-            position: relative; width: 100%; height:330px; /* 照片顯示的高度，可依需求調整 */
-            overflow: hidden; border-radius: 8px; background: #222; /* 沒填滿的地方會有黑色底 */
+            position: relative; width: 100%; height: 330px; 
+            overflow: hidden; border-radius: 8px; background: #222; 
             display: flex; align-items: center; justify-content: center;
         }
         .carousel-slide {
-            display: none; width: 100%; height: 100%; object-fit: contain; /* 改回contain確保完整顯示 */
+            display: none; width: 100%; height: 100%; object-fit: contain; 
         }
         .carousel-slide.active {
-            display: block; animation: fade 0.4s; /* 淡入特效 */
+            display: block; animation: fade 0.4s; 
         }
         .carousel-btn {
             position: absolute; top: 50%; transform: translateY(-50%);
@@ -84,7 +89,6 @@
         .prev-btn { left: 10px; }
         .next-btn { right: 10px; }
         
-        /* 動畫設定 */
         @keyframes fade { from {opacity: 0.5} to {opacity: 1} }
 
         /* 經歷區 */
@@ -102,7 +106,7 @@
         #portfolio {
             background-color: var(--bg-hero); 
             max-width: 100%; 
-            padding: 40px 20px 100px 20px; 
+            padding: 50px 20px 100px 20px; 
         }
 
         #portfolio h2, 
@@ -126,58 +130,6 @@
             font-weight: 600; 
         }
 
-        /* --- 平面攝影作品集 --- */
-        #photography {
-            background-color: var(--bg-white); 
-            padding: 100px 20px;
-        }
-        .photo-gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .photo-gallery-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            aspect-ratio: 4 / 3; /* 強制把照片統一裁成 4:3 比例，排版才會整齊 */
-            background: #eee;
-        }
-        .photo-gallery-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease; /* 放大動畫的順滑度 */
-        }
-        /* 滑鼠移上去時，照片微微放大 */
-        .photo-gallery-card:hover img {
-            transform: scale(1.08); 
-        }
-        /* 隱藏的文字遮罩層 */
-        .photo-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); /* 漸層黑底讓白字更清楚 */
-            color: #fff;
-            opacity: 0; /* 預設為透明看不見 */
-            transition: opacity 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-        }
-        /* 滑鼠移上去時，顯示文字層 */
-        .photo-gallery-card:hover .photo-overlay {
-            opacity: 1; 
-        }
-        .photo-overlay h3 { margin: 0 0 5px 0; font-size: 1.1rem; letter-spacing: 1px; }
-        .photo-overlay p { margin: 0; font-size: 0.8rem; color: #ddd; }
-
-
         /* 標籤 */
         .skill-tag { display: inline-block; padding: 5px 12px; background: var(--bg-dark-brown); color: #fff; font-size: 0.7rem; margin: 3px; }
 
@@ -187,7 +139,6 @@
         @media (max-width: 768px) {
             nav a { margin: 0 8px; font-size: 0.75rem; letter-spacing: 1px; }
             .about-grid { grid-template-columns: 1fr; }
-            .photo-gallery-grid { grid-template-columns: 1fr; } /* 平面攝影區手機版單排顯示 */
             .portfolio-grid { grid-template-columns: 1fr; }
             .hero-container { flex-direction: column; text-align: center; gap: 30px; }
             .hero-image-wrapper { text-align: center; }
@@ -204,7 +155,8 @@
         <a href="#hero">INTRO</a>
         <a href="#about">PROFILE</a>
         <a href="#experience">EXPERIENCE</a>
-        <a href="#portfolio">WORKS</a> <a href="#photography">PHOTOGRAPHY</a> </nav>
+        <a href="#portfolio">WORKS</a> 
+    </nav>
 
     <div class="hero" id="hero">
         <div class="hero-container">
@@ -388,45 +340,6 @@
         </div>
     </section>
 
-    <section id="photography">
-        <h2 style="text-align: center; color: var(--bg-dark-brown); margin-bottom: 60px;">平面攝影 / PHOTOGRAPHY</h2>
-        <div class="photo-gallery-grid">
-            
-            <div class="photo-gallery-card">
-                <img src="assets/靜態攝影01.jpg" alt="音樂祭現場">
-                <div class="photo-overlay">
-                    <h3>現場展演紀錄</h3>
-                    <p>捕捉樂手沉浸節奏的瞬間</p>
-                </div>
-            </div>
-            
-            <div class="photo-gallery-card">
-                <img src="assets/靜態攝影02.jpg" alt="活動紀錄">
-                <div class="photo-overlay">
-                    <h3>活動紀錄</h3>
-                    <p>光影與氛圍張力的展現</p>
-                </div>
-            </div>
-
-            <div class="photo-gallery-card">
-                <img src="assets/靜態攝影03.jpg" alt="人像攝影">
-                <div class="photo-overlay">
-                    <h3>人像與光影</h3>
-                    <p>Sony 系統拍攝</p>
-                </div>
-            </div>
-            
-            <div class="photo-gallery-card">
-                <img src="assets/靜態攝影04.jpg" alt="拍攝現場">
-                <div class="photo-overlay">
-                    <h3>幕後花絮</h3>
-                    <p>燈光與敘事營造</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
     <footer>
         <p>&copy; 2026 MONSGGRUND. FILM PRODUCTION.</p>
     </footer>
@@ -451,6 +364,7 @@
     </script>
 </body>
 </html>
+
 
 
 
