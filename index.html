@@ -169,7 +169,13 @@
         </div>
     </div>
 
-  <section id="about">
+</div></div> <section id="portfolio"> <section id="portfolio"> ```
+這會導致瀏覽器判斷區塊範圍時發生錯亂，甚至也有可能是影響到 CSS 沒有正常運作的元兇。
+
+我幫你把這段 HTML 裡面的「重複標籤」剔除，並重新排版得更整齊了。請你將程式碼從 `<section id="about">` 一直到 `<section id="portfolio">` 的結尾處，**直接用下面這段完整替換掉**：
+
+```html
+    <section id="about">
         <div class="about-grid">
             <div class="about-info">
                 <h2 style="color: var(--bg-dark-brown);">關於我 </h2>
@@ -193,7 +199,6 @@
             </div>
 
             <div class="about-right-column">
-                
                 <div style="background: var(--bg-hero); padding: 40px; border: 1px solid #ccc; text-align: center;">
                     <p style="color: var(--bg-dark-brown); font-weight: 700; margin-bottom: 30px; letter-spacing: 2px;">SKILLS</p>
                     
@@ -225,9 +230,10 @@
                             </div>
                             <p style="font-size: 0.8rem; color: #555;">Ableton Live</p>
                         </div>
+                    </div>
+                </div> 
 
-                        </div>
-                </div> <div class="photo-gallery-wrapper">
+                <div class="photo-gallery-wrapper">
                     <p style="color: var(--bg-dark-brown); font-weight: 700; font-size: 0.9rem; margin-bottom: 15px; letter-spacing: 2px;">BEHIND THE SCENES</p>
                     <div class="photo-scroller">
                         <img src="assets/live-01.jpg" alt="工作側拍">
@@ -236,57 +242,51 @@
                         <img src="assets/photo4.jpg" alt="現場展演">
                     </div>
                 </div>
-
-            </div> </div>
+            </div> 
+        </div>
     </section>
 
-   <div class="experience-section" id="experience">
-    <div class="exp-inner">
-        <h2 style="text-align: center; margin-bottom: 50px;">經歷 / EXPERIENCE</h2>
-        
-       <div class="exp-item">
-       <div>
-        <h4 style="margin: 0 0 8px 0;">MusicVideo-朝陽科大115年畢業歌MV《I HOLD U》/燈光組</h4>
-        <a href="https://www.youtube.com/watch?v=JY5VzOdC0zU" target="_blank" style="color: #bbb; font-size: 0.85rem; text-decoration: none; border-bottom: 1px solid #777; transition: 0.3s; padding-bottom: 2px;">
-            觀看作品 ↗
-        </a>
+    <div class="experience-section" id="experience">
+        <div class="exp-inner">
+            <h2 style="text-align: center; margin-bottom: 50px;">經歷 / EXPERIENCE</h2>
+            
+            <div class="exp-item">
+                <div>
+                    <h4 style="margin: 0 0 8px 0;">MusicVideo-朝陽科大115年畢業歌MV《I HOLD U》/燈光組</h4>
+                    <a href="https://www.youtube.com/watch?v=JY5VzOdC0zU" target="_blank" style="color: #bbb; font-size: 0.85rem; text-decoration: none; border-bottom: 1px solid #777; transition: 0.3s; padding-bottom: 2px;">觀看作品 ↗</a>
+                </div>
+            </div>
+            
+            <div class="exp-item">
+                <div>
+                    <h4 style="margin: 0 0 8px 0;">MusicVideo-謝安《順》/燈光組</h4>
+                    <a href="https://www.youtube.com/watch?v=UDg5eVosWgg" target="_blank" style="color: #bbb; font-size: 0.85rem; text-decoration: none; border-bottom: 1px solid #777; transition: 0.3s; padding-bottom: 2px;">觀看作品 ↗</a>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div>
+                    <h4 style="margin: 0 0 8px 0;">MusicVideo-謝安《taichill city card》/燈光組</h4>
+                    <a href="https://www.youtube.com/watch?v=YwujDZU0wfo" target="_blank" style="color: #bbb; font-size: 0.85rem; text-decoration: none; border-bottom: 1px solid #777; transition: 0.3s; padding-bottom: 2px;">觀看作品 ↗</a>
+                </div>
+            </div>
+    
+            <div class="exp-item">
+                <div>
+                    <h4 style="margin: 0 0 8px 0;">MusicVideo-大樓《逼迫》/燈光組</h4>
+                    <a href="https://www.youtube.com/watch?v=XYwbjB-0Cws" target="_blank" style="color: #bbb; font-size: 0.85rem; text-decoration: none; border-bottom: 1px solid #777; transition: 0.3s; padding-bottom: 2px;">觀看作品 ↗</a>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div>
+                    <h4 style="margin: 0 0 8px 0;">朝陽科大畢製《Watchout怎麼卡在廁所》/燈光組</h4>
+                </div>
+            </div>
         </div>
-    </div>
-        
-       <div class="exp-item">
-       <div>
-        <h4 style="margin: 0 0 8px 0;">MusicVideo-謝安《順》/燈光組</h4>
-        <a href="https://www.youtube.com/watch?v=UDg5eVosWgg" target="_blank" style="color: #bbb; font-size: 0.85rem; text-decoration: none; border-bottom: 1px solid #777; transition: 0.3s; padding-bottom: 2px;">
-            觀看作品 ↗
-        </a>
-       </div>
-       </div>
+    </div> 
 
-       <div class="exp-item">
-       <div>
-        <h4 style="margin: 0 0 8px 0;">MusicVideo-謝安《taichill city card》/燈光組</h4>
-        <a href="https://www.youtube.com/watch?v=YwujDZU0wfo" target="_blank" style="color: #bbb; font-size: 0.85rem; text-decoration: none; border-bottom: 1px solid #777; transition: 0.3s; padding-bottom: 2px;">
-            觀看作品 ↗
-        </a>
-       </div>
-      </div>
- 
-      <div class="exp-item">
-     <div>
-        <h4 style="margin: 0 0 8px 0;">MusicVideo-大樓《逼迫》/燈光組</h4>
-        <a href="https://www.youtube.com/watch?v=XYwbjB-0Cws" target="_blank" style="color: #bbb; font-size: 0.85rem; text-decoration: none; border-bottom: 1px solid #777; transition: 0.3s; padding-bottom: 2px;">
-            觀看作品 ↗
-        </a>
-      </div>
-      </div>
-
-     <div class="exp-item">
-     <div>
-        <h4 style="margin: 0 0 8px 0;">朝陽科大畢製《Watchout怎麼卡在廁所》/燈光組</h4>
-    </div>
-    </div>
-    </div></div> <section id="portfolio">
-<section id="portfolio">
+    <section id="portfolio">
         <h2 style="text-align: center; color: var(--bg-dark-brown); margin-bottom: 60px;">作品集 / PORTFOLIO</h2>
         <div class="portfolio-grid">
             <div class="video-card">
@@ -329,7 +329,6 @@
                 </div>
             </div>
         </div>
-   
     </section>
 
     <footer>
@@ -338,6 +337,7 @@
 
 </body>
 </html>
+
 
 
 
