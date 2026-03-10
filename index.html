@@ -62,7 +62,30 @@
         }
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
         .about-info p { line-height: 2; color: #444; font-size: 1rem; }
+        /* --- 橫向滾動照片集 --- */
+        .photo-gallery-wrapper {
+            margin-top: 20px; 
+        }
+        .photo-scroller {
+            display: flex;
+            overflow-x: auto; 
+            gap: 15px; 
+            padding-bottom: 10px; 
+            scroll-behavior: smooth;
+        }
+        /* 滾動條樣式 */
+        .photo-scroller::-webkit-scrollbar { height: 8px; }
+        .photo-scroller::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+        .photo-scroller::-webkit-scrollbar-thumb { background: var(--bg-dark-brown); border-radius: 4px; }
         
+        /* ⭐ 就是這一段在控制照片大小，請務必確認有貼到！ */
+        .photo-scroller img {
+            height: 180px; /* 把高度固定在 180px，寬度會自動等比例縮小 */
+            width: auto;
+            object-fit: cover;
+            border-radius: 8px; 
+            flex-shrink: 0; 
+        }
         /* 經歷區 */
         .experience-section { background: var(--bg-smoke); max-width: 100%; padding: 100px 0; color: #eee; }
         .exp-inner { max-width: 900px; margin: 0 auto; padding: 0 20px; }
@@ -315,6 +338,7 @@
 
 </body>
 </html>
+
 
 
 
