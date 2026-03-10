@@ -92,6 +92,40 @@
         .exp-inner { max-width: 900px; margin: 0 auto; padding: 0 20px; }
         .exp-item { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 25px 0; display: flex; justify-content: space-between; }
 
+        /* --- 影片作品集 --- */
+        .portfolio-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 25px; 
+        }
+        
+        #portfolio {
+            background-color: var(--bg-hero); 
+            max-width: 100%; 
+            padding: 40px 20px 100px 20px; 
+        }
+
+        #portfolio h2, 
+        #portfolio .portfolio-grid {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .video-card { background: #fff; border: 1px solid #eee; transition: transform 0.3s ease; }
+        .video-card:hover { transform: translateY(-5px); } 
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: #000; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        .video-info { padding: 15px; border-top: 3px solid var(--bg-dark-brown); }
+        .video-info h3 { margin: 0; font-size: 0.95rem; color: var(--bg-dark-brown); letter-spacing: 1px; }
+        .video-info p { 
+            font-size: 1rem; 
+            color: var(--bg-smoke); 
+            margin-top: 5px; 
+            text-transform: uppercase; 
+            font-weight: 600; 
+        }
+
         /* --- 平面攝影作品集 --- */
         #photography {
             background-color: var(--bg-white); 
@@ -144,40 +178,6 @@
         .photo-overlay p { margin: 0; font-size: 0.8rem; color: #ddd; }
 
 
-        /* --- 影片作品集 --- */
-        .portfolio-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 25px; 
-        }
-        
-        #portfolio {
-            background-color: var(--bg-hero); 
-            max-width: 100%; 
-            padding: 40px 20px 100px 20px; 
-        }
-
-        #portfolio h2, 
-        #portfolio .portfolio-grid {
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .video-card { background: #fff; border: 1px solid #eee; transition: transform 0.3s ease; }
-        .video-card:hover { transform: translateY(-5px); } 
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: #000; }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-        .video-info { padding: 15px; border-top: 3px solid var(--bg-dark-brown); }
-        .video-info h3 { margin: 0; font-size: 0.95rem; color: var(--bg-dark-brown); letter-spacing: 1px; }
-        .video-info p { 
-            font-size: 1rem; 
-            color: var(--bg-smoke); 
-            margin-top: 5px; 
-            text-transform: uppercase; 
-            font-weight: 600; 
-        }
-
         /* 標籤 */
         .skill-tag { display: inline-block; padding: 5px 12px; background: var(--bg-dark-brown); color: #fff; font-size: 0.7rem; margin: 3px; }
 
@@ -204,8 +204,7 @@
         <a href="#hero">INTRO</a>
         <a href="#about">PROFILE</a>
         <a href="#experience">EXPERIENCE</a>
-        <a href="#photography">PHOTOGRAPHY</a> <a href="#portfolio">WORKS</a>
-    </nav>
+        <a href="#portfolio">WORKS</a> <a href="#photography">PHOTOGRAPHY</a> </nav>
 
     <div class="hero" id="hero">
         <div class="hero-container">
@@ -344,46 +343,6 @@
         </div>
     </div>
 
-    <section id="photography">
-        <h2 style="text-align: center; color: var(--bg-dark-brown); margin-bottom: 60px;">平面攝影 / PHOTOGRAPHY</h2>
-        <div class="photo-gallery-grid">
-            
-            <div class="photo-gallery-card">
-                <img src="assets/靜態攝影01.jpg" alt="音樂祭現場">
-                <div class="photo-overlay">
-                    <h3>現場展演紀錄</h3>
-                    <p>捕捉樂手沉浸節奏的瞬間</p>
-                </div>
-            </div>
-            
-            <div class="photo-gallery-card">
-                <img src="assets/靜態攝影02.jpg" alt="活動紀錄">
-                <div class="photo-overlay">
-                    <h3>活動紀錄</h3>
-                    <p>光影與氛圍張力的展現</p>
-                </div>
-            </div>
-
-            <div class="photo-gallery-card">
-                <img src="assets/靜態攝影03.jpg" alt="人像攝影">
-                <div class="photo-overlay">
-                    <h3>人像與光影</h3>
-                    <p>Sony 系統拍攝</p>
-                </div>
-            </div>
-            
-            <div class="photo-gallery-card">
-                <img src="assets/靜態攝影04.jpg" alt="拍攝現場">
-                <div class="photo-overlay">
-                    <h3>幕後花絮</h3>
-                    <p>燈光與敘事營造</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-
     <section id="portfolio">
         <h2 style="text-align: center; color: var(--bg-dark-brown); margin-bottom: 60px;">動態影片 / VIDEO WORKS</h2>
         <div class="portfolio-grid">
@@ -429,6 +388,45 @@
         </div>
     </section>
 
+    <section id="photography">
+        <h2 style="text-align: center; color: var(--bg-dark-brown); margin-bottom: 60px;">平面攝影 / PHOTOGRAPHY</h2>
+        <div class="photo-gallery-grid">
+            
+            <div class="photo-gallery-card">
+                <img src="assets/靜態攝影01.jpg" alt="音樂祭現場">
+                <div class="photo-overlay">
+                    <h3>現場展演紀錄</h3>
+                    <p>捕捉樂手沉浸節奏的瞬間</p>
+                </div>
+            </div>
+            
+            <div class="photo-gallery-card">
+                <img src="assets/靜態攝影02.jpg" alt="活動紀錄">
+                <div class="photo-overlay">
+                    <h3>活動紀錄</h3>
+                    <p>光影與氛圍張力的展現</p>
+                </div>
+            </div>
+
+            <div class="photo-gallery-card">
+                <img src="assets/靜態攝影03.jpg" alt="人像攝影">
+                <div class="photo-overlay">
+                    <h3>人像與光影</h3>
+                    <p>Sony 系統拍攝</p>
+                </div>
+            </div>
+            
+            <div class="photo-gallery-card">
+                <img src="assets/靜態攝影04.jpg" alt="拍攝現場">
+                <div class="photo-overlay">
+                    <h3>幕後花絮</h3>
+                    <p>燈光與敘事營造</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <footer>
         <p>&copy; 2026 MONSGGRUND. FILM PRODUCTION.</p>
     </footer>
@@ -453,12 +451,6 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
 
 
 
