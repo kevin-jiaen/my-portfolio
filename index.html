@@ -62,29 +62,30 @@
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
         .about-info p { line-height: 2; color: #444; font-size: 1rem; }
         
-        /* --- 橫向滾動照片集 --- */
-        .photo-gallery-wrapper {
-            margin-top: 20px; 
+        /* --- 輪播圖照片集 --- */
+        .carousel-wrapper { margin-top: 20px; }
+        .carousel-container {
+            position: relative; width: 100%; height: 250px; /* 照片顯示的高度，可依需求調整 */
+            overflow: hidden; border-radius: 8px; background: #222; /* 沒填滿的地方會有黑色底 */
+            display: flex; align-items: center; justify-content: center;
         }
-        .photo-scroller {
-            display: flex;
-            overflow-x: auto; 
-            gap: 15px; 
-            padding-bottom: 10px; 
-            scroll-behavior: smooth;
+        .carousel-slide {
+            display: none; width: 100%; height: 100%; object-fit: cover;
         }
-        /* 滾動條樣式 */
-        .photo-scroller::-webkit-scrollbar { height: 8px; }
-        .photo-scroller::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
-        .photo-scroller::-webkit-scrollbar-thumb { background: var(--bg-dark-brown); border-radius: 4px; }
+        .carousel-slide.active {
+            display: block; animation: fade 0.4s; /* 淡入特效 */
+        }
+        .carousel-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(0,0,0,0.5); color: white; border: none; font-size: 16px;
+            padding: 8px 12px; cursor: pointer; border-radius: 4px; z-index: 10;
+        }
+        .carousel-btn:hover { background: rgba(0,0,0,0.8); }
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
         
-        .photo-scroller img {
-            height: 180px; 
-            width: auto;
-            object-fit: cover;
-            border-radius: 8px; 
-            flex-shrink: 0; 
-        }
+        /* 動畫設定 */
+        @keyframes fade { from {opacity: 0.5} to {opacity: 1} }
 
         /* 經歷區 */
         .experience-section { background: var(--bg-smoke); max-width: 100%; padding: 100px 0; color: #eee; }
@@ -225,13 +226,17 @@
                     </div>
                 </div> 
 
-                <div class="photo-gallery-wrapper">
+                <div class="carousel-wrapper">
                     <p style="color: var(--bg-dark-brown); font-weight: 700; font-size: 0.9rem; margin-bottom: 15px; letter-spacing: 2px;">BEHIND THE SCENES</p>
-                    <div class="photo-scroller">
-                        <img src="assets/live-01.jpg" alt="工作側拍">
-                        <img src="assets/live-02.jpg" alt="工作側拍">
-                        <img src="assets/photo3.jpg" alt="現場展演">
-                        <img src="assets/photo4.jpg" alt="現場展演">
+                    <div class="carousel-container">
+                        <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+                        
+                        <img class="carousel-slide active" src="assets/live-01.jpg" alt="工作側拍">
+                        <img class="carousel-slide" src="assets/live-02.jpg" alt="工作側拍">
+                        <img class="carousel-slide" src="assets/photo3.jpg" alt="現場展演">
+                        <img class="carousel-slide" src="assets/photo4.jpg" alt="現場展演">
+                        
+                        <button class="carousel-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
                     </div>
                 </div>
 
@@ -336,10 +341,26 @@
         <p>&copy; 2026 MONSGGRUND. FILM PRODUCTION.</p>
     </footer>
 
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+
+        function moveSlide(n) {
+            if(slides.length === 0) return;
+            // 隱藏目前的照片
+            slides[slideIndex].classList.remove('active');
+            
+            // 計算下一張的索引
+            slideIndex += n;
+            if (slideIndex >= slides.length) slideIndex = 0; // 超過最後一張就回到第一張
+            if (slideIndex < 0) slideIndex = slides.length - 1; // 小於第一張就回到最後一張
+            
+            // 顯示計算好的那張照片
+            slides[slideIndex].classList.add('active');
+        }
+    </script>
 </body>
 </html>
-
-
 
 
 
