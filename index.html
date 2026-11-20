@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>楊嘉恩 | Video Portfolio</title>
+    <title>楊嘉恩 | Short-Form Video Editor & Filmmaker</title>
     <style>
         :root {
             --bg-hero: #d8d3cf;    /* 封面：中性暖灰色 */
@@ -56,13 +56,17 @@
             flex: 1; text-align: left;
         }
         .hero-content h1 { font-size: 3.5rem; margin: 0; letter-spacing: 10px; color: var(--bg-dark-brown); font-weight: 400; }
-        .hero-content p { font-size: 0.9rem; color: var(--bg-smoke); letter-spacing: 5px; margin-top: 15px; font-weight: 600; }
+        .hero-role {
+            font-size: 0.85rem; color: var(--bg-dark-brown); letter-spacing: 3px; 
+            margin-top: 12px; font-weight: 700; opacity: 0.85;
+        }
+        .hero-contact { font-size: 0.9rem; color: var(--bg-smoke); letter-spacing: 4px; margin-top: 15px; font-weight: 600; }
 
         section { padding: 60px 20px 100px 20px; max-width: 1200px; margin: 0 auto; }
 
         /* 關於我 */
         #about {
-            padding-top: 50px; 
+            padding-top: 60px; 
         }
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
         .about-info p { line-height: 2; color: #444; font-size: 1rem; }
@@ -91,56 +95,167 @@
         
         @keyframes fade { from {opacity: 0.5} to {opacity: 1} }
 
-        /* 經歷區 */
-        .experience-section { background: var(--bg-smoke); max-width: 100%; padding: 50px 0 80px 0; color: #eee; }
-        .exp-inner { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-        .exp-item { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 25px 0; display: flex; justify-content: space-between; }
+        /* --- 直式短影音作品集 (9:16) - 主打區 --- */
+        #short-form {
+            background-color: var(--bg-hero);
+            max-width: 100%;
+            padding: 60px 20px 100px 20px;
+        }
 
-        /* --- 影片作品集 --- */
+        #short-form h2,
+        #short-form .section-subtitle,
+        #short-form .shorts-grid {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--bg-smoke);
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            margin-top: -25px;
+            margin-bottom: 40px;
+        }
+
+        .shorts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .short-card {
+            background: #fff;
+            border: 1px solid #e0dcd8;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        .short-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .short-wrapper {
+            position: relative;
+            padding-bottom: 177.78%; /* 9:16 直式比例 */
+            height: 0;
+            background: #1a1817;
+            overflow: hidden;
+        }
+
+        .short-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* 頻道專屬卡片 */
+        .channel-placeholder {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(160deg, var(--bg-dark-brown) 0%, #221f1d 100%);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .channel-placeholder .channel-badge {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: var(--bg-hero);
+            border: 1px solid rgba(216, 211, 207, 0.4);
+            padding: 4px 10px;
+            margin-bottom: 18px;
+        }
+
+        .channel-placeholder h4 {
+            font-size: 1.25rem;
+            letter-spacing: 1px;
+            margin: 0 0 10px 0;
+            font-weight: 500;
+        }
+
+        .channel-placeholder p {
+            font-size: 0.85rem;
+            color: #ccc;
+            line-height: 1.6;
+            margin: 0 0 25px 0;
+        }
+
+        .channel-link-btn {
+            display: inline-block;
+            padding: 10px 22px;
+            background: var(--bg-hero);
+            color: var(--bg-dark-brown);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            border-radius: 2px;
+        }
+
+        .channel-link-btn:hover {
+            background: #fff;
+        }
+
+        /* --- 橫式影片作品集 (16:9) --- */
         .portfolio-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
             gap: 25px; 
         }
         
-        /* 將 padding-top 縮小為 40px */
         #portfolio {
-            background-color: var(--bg-hero); 
+            background-color: var(--bg-white); 
             max-width: 100%; 
-            padding: 40px 20px 100px 20px; 
+            padding: 60px 20px 100px 20px; 
         }
 
-        #portfolio h2, 
+        #portfolio h2,
+        #portfolio .section-subtitle,
         #portfolio .portfolio-grid {
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
         }
         
-        .video-card { background: #fff; border: 1px solid #eee; transition: transform 0.3s ease; }
+        .video-card { background: #fff; border: 1px solid #e5e5e5; transition: transform 0.3s ease; }
         .video-card:hover { transform: translateY(-5px); } 
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: #000; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
         .video-info { padding: 15px; border-top: 3px solid var(--bg-dark-brown); }
         .video-info h3 { margin: 0; font-size: 0.95rem; color: var(--bg-dark-brown); letter-spacing: 1px; }
         .video-info p { 
-            font-size: 1rem; 
+            font-size: 0.85rem; 
             color: var(--bg-smoke); 
             margin-top: 5px; 
             text-transform: uppercase; 
             font-weight: 600; 
+            margin-bottom: 0;
         }
 
-        /* 標籤 */
-        .skill-tag { display: inline-block; padding: 5px 12px; background: var(--bg-dark-brown); color: #fff; font-size: 0.7rem; margin: 3px; }
+        /* 經歷區 */
+        .experience-section { background: var(--bg-smoke); max-width: 100%; padding: 60px 0 90px 0; color: #eee; }
+        .exp-inner { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        .exp-item { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 25px 0; display: flex; justify-content: space-between; }
 
         footer { background: #221f1d; padding: 60px 20px; text-align: center; color: #777; font-size: 0.7rem; }
 
         /* 手機版排版適應 */
         @media (max-width: 768px) {
-            nav a { margin: 0 8px; font-size: 0.75rem; letter-spacing: 1px; }
+            nav a { margin: 0 8px; font-size: 0.72rem; letter-spacing: 1px; }
             .about-grid { grid-template-columns: 1fr; }
             .portfolio-grid { grid-template-columns: 1fr; }
+            .shorts-grid { grid-template-columns: 1fr; max-width: 360px; }
             .hero-container { flex-direction: column; text-align: center; gap: 30px; }
             .hero-image-wrapper { text-align: center; }
             .hero-divider { display: none; } 
@@ -155,8 +270,9 @@
     <nav>
         <a href="#hero">INTRO</a>
         <a href="#about">PROFILE</a>
+        <a href="#short-form">SHORTS</a>
+        <a href="#portfolio">WORKS</a>
         <a href="#experience">EXPERIENCE</a>
-        <a href="#portfolio">WORKS</a> 
     </nav>
 
     <div class="hero" id="hero">
@@ -167,9 +283,8 @@
             <div class="hero-divider"></div>
             <div class="hero-content">
                 <h1>楊嘉恩</h1>
-                <p>聯絡方式
-                0963566571
-                </p>
+                <div class="hero-role">SHORT-FORM VIDEO EDITOR · FILMMAKER</div>
+                <p class="hero-contact">聯絡方式 0963566571</p>
             </div>
         </div>
     </div>
@@ -177,11 +292,12 @@
     <section id="about">
         <div class="about-grid">
             <div class="about-info">
-                <h2 style="color: var(--bg-dark-brown); margin-top: 0;">關於我 </h2>
+                <h2 style="color: var(--bg-dark-brown); margin-top: 0;">關於我</h2>
                 <p>
-    我目前就讀傳播藝術系，主要專注於影像創作，包含劇組製作與各類影視實務的參與。<br>
-    過去的學習與經驗多集中在影像拍攝與製作流程中，從前期準備到現場執行，再到後期處理，
-    逐步建立對影像工作的整體理解。
+                    我目前就讀傳播藝術系，具備科班訓練的影像美感與畫面敘事敏銳度，專注於<strong>短影音剪輯與影視製作</strong>。<br><br>
+                    不同於一般的模板化剪輯，我擅長將長片劇組累積的構圖、節奏與調光美學帶入短影音創作中——無論是講求品牌調性與吸睛節奏的<strong>娛樂商業 Reels</strong>，或是講求高密度笑點與音效設計的<strong>遊戲精華短片</strong>，皆能精準掌握觀眾注意力與畫面質感。<br><br>
+                    從前期企劃拍攝、現場燈光攝影，到後期剪輯、字卡節奏與 DaVinci 調光皆可獨立執行，能為團隊提供兼具效率與高質感的影像產出。
+                </p>
             </div>
 
             <div class="about-right-column">
@@ -237,9 +353,112 @@
         </div>
     </section>
 
+    <section id="short-form">
+        <h2 style="text-align: center; color: var(--bg-dark-brown); margin-top: 0; margin-bottom: 35px;">短影音作品 / SHORT-FORM REELS</h2>
+        <p class="section-subtitle">娛樂品牌短影音拍攝剪輯 · 遊戲精華節奏剪輯</p>
+        <div class="shorts-grid">
+            
+            <!-- 混血兒娛樂 Reels 1 -->
+            <div class="short-card">
+                <div class="short-wrapper">
+                    <iframe src="https://www.instagram.com/reel/DerEV06gKF0/embed" frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>混血兒娛樂 - 官方短影音</h3>
+                    <p>拍攝．剪輯</p>
+                </div>
+            </div>
+
+            <!-- 混血兒娛樂 Reels 2 -->
+            <div class="short-card">
+                <div class="short-wrapper">
+                    <iframe src="https://www.instagram.com/reel/DeZCWWOtSYw/embed" frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>混血兒娛樂 - 官方短影音</h3>
+                    <p>拍攝．剪輯</p>
+                </div>
+            </div>
+
+            <!-- 混血兒娛樂 Reels 3 -->
+            <div class="short-card">
+                <div class="short-wrapper">
+                    <iframe src="https://www.instagram.com/reel/DeeK8gBBWle/embed" frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>混血兒娛樂 - 官方短影音</h3>
+                    <p>拍攝．剪輯</p>
+                </div>
+            </div>
+
+            <!-- 遊戲精華剪輯頻道 -->
+            <div class="short-card">
+                <div class="short-wrapper">
+                    <div class="channel-placeholder">
+                        <span class="channel-badge">INSTAGRAM REELS</span>
+                        <h4>@haochengtv_</h4>
+                        <p>遊戲實況精華短影音剪輯<br>節奏設計．綜藝字卡．音效搭配</p>
+                        <a href="https://www.instagram.com/haochengtv_" target="_blank" class="channel-link-btn">前往觀看頻道 ↗</a>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <h3>haochengtv_ 頻道作品</h3>
+                    <p>遊戲精華剪輯</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2 style="text-align: center; color: var(--bg-dark-brown); margin-top: 0; margin-bottom: 35px;">長片與動態影像 / VIDEO WORKS</h2>
+        <p class="section-subtitle">劇情短片 · 音樂與形象影像（導演 / 攝影 / 剪輯 / 調光）</p>
+        <div class="portfolio-grid">
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/CzmyvJ7E0f4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>馬傑 -《新賽季》</h3>
+                    <p>導演．攝影．剪輯．調光</p>
+                </div>
+            </div>
+            
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/qF4KUdPeThs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>D4ZE -《H&B》</h3>
+                    <p>導演．攝影．剪輯．調光</p>
+                </div>
+            </div>
+            
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/F82GZwIxhs8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>大三劇情片製作-《超能力》</h3>
+                    <p>攝影．調光</p>
+                </div>
+            </div>
+            
+             <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/NOUhpo9c3hU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>ycw-《問我，甘五想你》</h3>
+                    <p>剪輯</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div class="experience-section" id="experience">
         <div class="exp-inner">
-            <h2 style="text-align: center; margin-top: 0; margin-bottom: 50px;">經歷 / EXPERIENCE</h2>
+            <h2 style="text-align: center; margin-top: 0; margin-bottom: 50px;">劇組經歷 / EXPERIENCE</h2>
             
             <div class="exp-item">
                 <div>
@@ -285,51 +504,6 @@
         </div>
     </div>
 
-    <section id="portfolio">
-        <h2 style="text-align: center; color: var(--bg-dark-brown); margin-top: 0; margin-bottom: 40px;">動態影片 / VIDEO WORKS</h2>
-        <div class="portfolio-grid">
-            <div class="video-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/CzmyvJ7E0f4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <h3>馬傑 -《新賽季》</h3>
-                    <p>導演．攝影．剪輯．調光</p>
-                </div>
-            </div>
-            
-            <div class="video-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/qF4KUdPeThs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <h3>D4ZE -《H&B》</h3>
-                    <p> 導演．攝影．剪輯．調光</p>
-                </div>
-            </div>
-            
-            <div class="video-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/F82GZwIxhs8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <h3>大三劇情片製作-《超能力》</h3>
-                    <p>攝影．調光</p>
-                </div>
-            </div>
-            
-             <div class="video-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/NOUhpo9c3hU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <h3>ycw-《問我，甘五想你》</h3>
-                    <p>剪輯</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <footer>
         <p>&copy; 2026 MONSGGRUND. FILM PRODUCTION.</p>
     </footer>
@@ -354,4 +528,3 @@
     </script>
 </body>
 </html>
-
